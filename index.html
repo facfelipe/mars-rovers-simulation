@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Mars Rover Simulator</title>
+
+        <link rel="stylesheet" href="style.css">
+
+        <script type="module">
+
+            import bootstrap from "./index.js";
+            
+            const ready = () => {
+
+                bootstrap.setPlateauElementGetter(() => document.getElementById('plateau'));
+
+                const simulator = bootstrap.build();
+
+                simulator.launchRover([
+                    '1 2 N',
+                    'LMLMLMLMM'
+                ]);
+
+                simulator.launchRover([
+                    '3 3 E',
+                    'MRRMMRMRRM'
+                ]);
+            }
+
+            document.addEventListener('DOMContentLoaded', ready);
+
+        </script>        
+
+    </head>
+
+    <boody>
+
+        <div class="container">
+            <div id="plateau"> 
+                <!-- Dynamic content -->
+            </div>
+        </div>
+        
+        <div class="container">
+
+            <div id="controls">
+                <h2>Welcome to Mars Rover Simulator</h2>
+
+                <!-- Future implementions -->
+            </div>
+
+        </div>
+
+    </boody>
+
+</html>
