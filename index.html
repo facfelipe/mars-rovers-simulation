@@ -7,6 +7,18 @@
         <script type="module">
 
             import bootstrap from "./index.js";
+
+            function handleSubmitLauchingForm(event, simulator) {
+                event.preventDefault();
+
+                const data = new FormData(event.target);
+                const props = Object.fromEntries(data);
+
+                simulator.launchRover([
+                    props.landing_position,
+                    props.instruction
+                ]);
+            }
             
             const ready = () => {
 
@@ -14,15 +26,9 @@
 
                 const simulator = bootstrap.build();
 
-                simulator.launchRover([
-                    '1 2 N',
-                    'LMLMLMLMM'
-                ]);
+                const launchingForm = document.getElementById('launch-rover-form');
 
-                simulator.launchRover([
-                    '3 3 E',
-                    'MRRMMRMRRM'
-                ]);
+                launchingForm.addEventListener('submit', (event) => handleSubmitLauchingForm(event, simulator));
             }
 
             document.addEventListener('DOMContentLoaded', ready);
@@ -43,8 +49,22 @@
 
             <div id="controls">
                 <h2>Welcome to Mars Rover Simulator</h2>
+                <hr>
+                <h3>Launch a Rover</h3>
 
-                <!-- Future implementions -->
+                <form id="launch-rover-form">
+
+                    <div>
+                        <label for="landing_position">Landing Position</label>
+                        <input name="landing_position" placeholder="1 2 N">
+                    </div>
+                    <div>
+                        <label for="instruction">Movement Sequence</label>
+                        <input name="instruction" placeholder="LMLMLMLMM">
+                    </div>
+                    <button>Launch!</button>
+                </form>
+
             </div>
 
         </div>

@@ -56,11 +56,37 @@ body {
 }
 
 #controls {
-    width: 600px;
+    width: 700px;
     height: 200px;
     margin-top: 25px;
     color: #008000;
     background-color: #040404;
     border: 1px solid #3c3c44;
+    text-align: left;
+}
+
+#controls h2 {
     text-align: center;
+    margin: 10px;
+}
+
+#controls h3 {
+    margin: 10px;
+}
+
+#controls hr {
+    height: 1px;
+    background-color: green;
+    border-color: green;
+}
+
+#controls form {
+    text-align: left;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#controls form input {
+    margin-top: 5px;
 }
